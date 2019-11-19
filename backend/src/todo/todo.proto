@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package todo;
+
+service TodoService {
+    rpc FindOne (TodoById) returns (Todo) {}
+    rpc FindAll (TodoListRequest) returns (TodoList) {}
+}
+
+message TodoById {
+    int32 id = 1;
+}
+
+message TodoListRequest {
+
+}
+
+message Todo {
+    int32 id = 1;
+    string name = 2;
+}
+
+message TodoList {
+    repeated Todo todos = 1;
+}
