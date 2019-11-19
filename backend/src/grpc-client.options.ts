@@ -6,6 +6,6 @@ export const grpcClientOptions: ClientOptions = {
   options: {
     url: '0.0.0.0:50051',
     package: 'todo',
-    protoPath: join(__dirname, 'todo/todo.proto'),
+    protoPath: join(__dirname, './todo/todo.proto'),
   },
 };
