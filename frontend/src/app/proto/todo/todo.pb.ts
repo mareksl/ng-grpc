@@ -200,9 +200,11 @@ export class TodoList {
 
       switch (reader.getFieldNumber()) {
         case 1:
-          (instance.todos = instance.todos || []).push(new Todo());
-          reader.readMessage(instance.todos, Todo.fromBinaryReader);
+          const messageInitializer1 = new Todo();
+          reader.readMessage(messageInitializer1, Todo.fromBinaryReader);
+          (instance.todos = instance.todos || []).push(messageInitializer1);
           break;
+
         default:
           reader.skipField();
       }
