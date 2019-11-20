@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   constructor(private todoService: TodoServiceClient) {}
 
   ngOnInit() {
-    this.todoService.findAll(null).subscribe(data => {
+    this.todoService.findAll({}).subscribe(data => {
       console.log(data);
       this.todos = data.todos;
     });

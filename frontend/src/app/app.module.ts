@@ -11,13 +11,13 @@ import { GrpcWebDevtoolsInterceptor } from './GrpcWebDevtoolsInterceptor';
 @NgModule({
   providers: [
     {
-      provide: GRPC_TODO_SERVICE_CLIENT_SETTINGS,
-      useValue: { host: environment.host },
-    },
-    {
       provide: GRPC_INTERCEPTORS,
       useClass: GrpcWebDevtoolsInterceptor,
       multi: true,
+    },
+    {
+      provide: GRPC_TODO_SERVICE_CLIENT_SETTINGS,
+      useValue: { host: environment.host },
     },
   ],
   declarations: [AppComponent],
