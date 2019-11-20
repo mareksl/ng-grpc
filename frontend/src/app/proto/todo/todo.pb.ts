@@ -276,7 +276,7 @@ export class TodoServiceClient {
     return this.handler.handle({
       type: GrpcCallType.unary,
       client: this.client,
-      path: '/todo.TodoService/findOne',
+      path: '/todo.TodoService/FindOne',
       requestData,
       requestMetadata,
       requestClass: TodoById,
@@ -294,7 +294,7 @@ export class TodoServiceClient {
     return this.handler.handle({
       type: GrpcCallType.unary,
       client: this.client,
-      path: '/todo.TodoService/findAll',
+      path: '/todo.TodoService/FindAll',
       requestData,
       requestMetadata,
       requestClass: TodoListRequest,
