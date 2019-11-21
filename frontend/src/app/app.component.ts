@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo, TodoServiceClient } from './proto/todo/todo.pb';
+import { Todo, TodoServiceClient, TodoList } from './proto/todo/todo.pb';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  todos: Todo[] = [];
+  todos: Observable<Todo[]>;
   todoForm = new FormGroup({
     name: new FormControl(''),
   });
@@ -22,17 +24,13 @@ export class AppComponent implements OnInit {
   onSubmit() {
     if (this.todoForm.value.name !== '') {
       const todo = new Todo({
-        id: this.todos.length,
         name: this.todoForm.value.name,
       });
-      this.todoService.addOne(todo).subscribe(data => console.log(data));
-      this.fetchTodos();
+      this.todoService.addOne(todo).subscribe(data => this.fetchTodos());
     }
   }
 
   fetchTodos() {
-    this.todoService.findAll({}).subscribe(data => {
-      this.todos = data.todos;
-    });
+    this.todos = this.todoService.findAll({}).pipe(pluck('todos'));
   }
 }

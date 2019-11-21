@@ -23,7 +23,11 @@ export class TodoService {
 
   @GrpcMethod()
   addOne(data: Todo, metadata: any): Todo {
-    this.items.push(data);
+    const item: Todo = {
+      ...data,
+      id: this.items.length + 1,
+    };
+    this.items.push(item);
     return data;
   }
 }
