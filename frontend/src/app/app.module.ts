@@ -7,6 +7,7 @@ import { GRPC_TODO_SERVICE_CLIENT_SETTINGS } from './proto/todo/todo.pb';
 import { environment } from '../environments/environment';
 import { GRPC_INTERCEPTORS } from '@ngx-grpc/core';
 import { GrpcWebDevtoolsInterceptor } from './grpc-web-devtools.interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   providers: [
@@ -21,7 +22,7 @@ import { GrpcWebDevtoolsInterceptor } from './grpc-web-devtools.interceptor';
     },
   ],
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

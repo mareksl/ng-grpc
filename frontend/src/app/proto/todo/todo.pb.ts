@@ -303,4 +303,22 @@ export class TodoServiceClient {
       responseClass: TodoList
     }) as Observable<TodoList>;
   }
+
+  /**
+   * Unary RPC
+   * @param Todo request
+   * @param Metadata metadata
+   * @return Todo
+   */
+  addOne(requestData: Todo, requestMetadata: Metadata = {}) {
+    return this.handler.handle({
+      type: GrpcCallType.unary,
+      client: this.client,
+      path: '/todo.TodoService/AddOne',
+      requestData,
+      requestMetadata,
+      requestClass: Todo,
+      responseClass: Todo
+    }) as Observable<Todo>;
+  }
 }

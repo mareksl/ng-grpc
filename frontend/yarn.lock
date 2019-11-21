@@ -872,10 +872,10 @@
   dependencies:
     tslib "^1.9.0"
 
-"@ngx-grpc/protoc-gen-ng@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@ngx-grpc/protoc-gen-ng/-/protoc-gen-ng-0.2.1.tgz#64071e6b5c68347f56b12488b35447fcd2a3f88e"
-  integrity sha512-mU4PkA4VS4wUqdXLPfNKdDbJq0yWol3ija2wBLzC2r0W1fccy1/PRItG7P7PbJc2lAr9UiWfD9kmRB1vNqansg==
+"@ngx-grpc/protoc-gen-ng@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@ngx-grpc/protoc-gen-ng/-/protoc-gen-ng-0.2.2.tgz#7d5f7c6d5a6621b099936f460660cd831bca1a60"
+  integrity sha512-47QgOwsgZ9i2vAnC13YSeZGLfPNHa4pM+efkmT1O/hNSOtRvc960htpFtzjZGfM6SfzI1wHRKnJczgaW5X4rmA==
   dependencies:
     prettier "1.19.1"
     protoc-plugin "0.0.6"

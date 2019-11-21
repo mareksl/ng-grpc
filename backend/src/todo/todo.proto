@@ -5,6 +5,8 @@ package todo;
 service TodoService {
     rpc FindOne (TodoById) returns (Todo) {}
     rpc FindAll (TodoListRequest) returns (TodoList) {}
+
+    rpc AddOne (Todo) returns (Todo) {}
 }
 
 message TodoById {
