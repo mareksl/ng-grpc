@@ -1,15 +1,13 @@
-FROM node:10
+FROM node:12.8-alpine AS builder
 
-# Create app directory
-RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
+COPY . .
+RUN yarn && yarn build --prod
 
-# Install app dependencies
-COPY package.json /usr/src/app
-RUN npm install
+FROM nginx:stable-alpine
+LABEL version="1.0"
 
-# Bundle app source
-COPY . /usr/src/app
+COPY nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 4200
-CMD ["npm", "start"]
+WORKDIR /usr/share/nginx/html
+COPY --from=builder /usr/src/app/dist/ng-grpc .
