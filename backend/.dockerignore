@@ -2,4 +2,3 @@
 e2e
 node_modules
 docker-compose*.yml
-dist

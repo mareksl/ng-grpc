@@ -1,0 +1,35 @@
+version: "3.4"
+services:
+  todo:
+    image: mareksl/ng-grpc_backend:prod
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - proxy
+
+  frontend:
+    image: mareksl/ng-grpc_frontend:prod
+    ports:
+      - 80:80
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  proxy:
+    image: mareksl/ng-grpc_proxy:prod
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure

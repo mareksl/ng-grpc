@@ -1,0 +1,15 @@
+version: "3.4"
+services:
+  todo:
+    volumes:
+      - ./backend:/usr/src/app:rw
+      - /usr/src/app/node_modules
+
+  frontend:
+    volumes:
+      - ./frontend:/usr/src/app:rw
+      - /usr/src/app/node_modules
+
+  proxy:
+    volumes:
+      - ./envoy.yaml:/etc/envoy/envoy.yaml
